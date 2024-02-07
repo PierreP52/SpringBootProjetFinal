@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Ateliers</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <h1>Liste des Ateliers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="atelier : ${ateliers}">
+                <td th:text="${atelier.nom}"></td>
+                <td th:text="${atelier.description}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

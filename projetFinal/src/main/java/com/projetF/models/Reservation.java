@@ -3,11 +3,13 @@ package com.projetF.models;
 import java.time.LocalDateTime;
 
 
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Reservation")
@@ -17,7 +19,10 @@ public class Reservation {
     private ReservationId id;
 
     // Autres champs de la réservation
+	@NotNull
     private LocalDateTime dateDebut;
+	
+	@NotNull
     private LocalDateTime dateFin;
     
     @ManyToOne

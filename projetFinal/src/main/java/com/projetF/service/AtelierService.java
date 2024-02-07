@@ -1,11 +1,15 @@
-package com.projetFinal.service;
+package com.projetF.service;
 
 import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.projetF.models.Atelier;
 import com.projetF.repository.AtelierRepository;
+
+
 
 public class AtelierService {
 	@Autowired

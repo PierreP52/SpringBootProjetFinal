@@ -1,5 +1,8 @@
 package com.projetF.models;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,13 +18,19 @@ public class Artisan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column (name = "nom")
+	@NotBlank(message = "Le nom de l'artisan ne peut pas être vide")
+    @Size(max = 255, message = "Le nom de l'artisan ne peut pas dépasser 255 caractères")
+    @Column(name = "nom")
     private String nom;
 
-	@Column (name = "prenom")
+	@NotBlank(message = "Le prénom de l'artisan ne peut pas être vide")
+    @Size(max = 255, message = "Le prénom de l'artisan ne peut pas dépasser 255 caractères")
+    @Column(name = "prenom")
     private String prenom;
 
-	@Column (name = "artisanat")
+	@NotBlank(message = "L'artisanat de l'artisan ne peut pas être vide")
+    @Size(max = 255, message = "L'artisanat de l'artisan ne peut pas dépasser 255 caractères")
+    @Column(name = "artisanat")
     private String artisanat;
 
     // Getters and Setters
