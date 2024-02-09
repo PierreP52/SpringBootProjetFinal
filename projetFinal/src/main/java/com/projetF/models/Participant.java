@@ -1,6 +1,6 @@
 package com.projetF.models;
 
-import javax.validation.constraints.NotBlank;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Size;
+
 
 @Entity
 	@Table(name = "Participant")
@@ -18,13 +18,11 @@ import jakarta.validation.constraints.Size;
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 
-	    @NotBlank(message = "Le nom ne peut pas être vide")
-	    @Size(max = 255, message = "Le nom ne peut pas dépasser 255 caractères")
+	    
 	    @Column(name = "nom")
 	    private String nom;
 
-	    @NotBlank(message = "Le prénom ne peut pas être vide")
-	    @Size(max = 255, message = "Le prénom ne peut pas dépasser 255 caractères")
+	    
 	    @Column(name = "prenom")
 	    private String prenom;
 

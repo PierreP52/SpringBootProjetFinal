@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Réserver un atelier</h1>
-    <form action="/reservations/creneau" method="post" th:object="${nouvelleReservation}">
+    <form action="/reservation/creneau" method="post" th:object="${nouvelleReservation}">
         <label>Date de début :</label>
         <input type="datetime-local" th:field="*{dateDebut}" required><br>
         <label>Date de fin :</label>

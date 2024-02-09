@@ -5,15 +5,12 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.projetF.models.Artisan;
 import com.projetF.repository.ArtisanRepository;
 
-
-
-
-
-
+@Service
 public class ArtisanService {
 	
 	@Autowired

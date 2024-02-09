@@ -8,7 +8,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String showIndexPage() {
-        return "index"; // Ceci renvoie le nom de la vue (index.html dans ce cas)
+        return "index"; 
     }
 }
 

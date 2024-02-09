@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,14 +18,18 @@ import com.projetF.service.ReservationService;
 
 
 
-@RestController
-@RequestMapping("/reservations")
+@Controller
 public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
 
-    @PostMapping("/creneau")
+    @GetMapping("/reservationAtelier")
+    public String showreservationAtelierPage() {
+        return "reservationAtelier"; 
+    }
+
+    @PostMapping("/reservationAtelier/creneau")
     public ResponseEntity<Reservation> reserverCreneau(@RequestBody Reservation nouvelleReservation) {
         try {
             Reservation reservation = reservationService.reserverCreneau(nouvelleReservation);
