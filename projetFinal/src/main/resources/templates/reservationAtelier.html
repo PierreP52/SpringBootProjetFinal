@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Réserver un Créneau</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
+	<meta charset="UTF-8">
+	<title>Réserver un Créneau</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
+
 <body>
-    <h1>Réserver un atelier</h1>
-    <form action="/reservation/creneau" method="post" th:object="${nouvelleReservation}">
-        <label>Date de début :</label>
-        <input type="datetime-local" th:field="*{dateDebut}" required><br>
-        <label>Date de fin :</label>
-        <input type="datetime-local" th:field="*{dateFin}" required><br>
-        <label>Participant :</label>
-        <select th:field="*{participantId}" required>
-            <option th:each="participant : ${participants}" 
-                    th:value="${participant.id}" 
-                    th:text="${participant.nom + ' ' + participant.prenom}">
-            </option>
-        </select><br>
-        <label>Atelier :</label>
-        <select th:field="*{atelierId}" required>
-            <option th:each="atelier : ${ateliers}" 
-                    th:value="${atelier.id}" 
-                    th:text="${atelier.nom}">
-            </option>
-        </select><br>
-        <button type="submit">Réserver</button>
-    </form>
+	<h1>Réserver un atelier</h1>
+	<form action="/reservation/creneau" method="post" th:object="${nouvelleReservation}">
+		<label>Date de début :</label>
+		<input type="datetime-local" th:field="*{dateDebut}" required><br>
+		<label>Date de fin :</label>
+		<input type="datetime-local" th:field="*{dateFin}" required><br>
+		<label>Participant :</label>
+		<select th:field="*{participantId}" required>
+			<option th:each="participant : ${participants}" th:value="${participant.id}"
+				th:text="${participant.nom + ' ' + participant.prenom}">
+			</option>
+		</select><br>
+		<label>Atelier :</label>
+		<select th:field="*{atelierId}" required>
+			<option th:each="atelier : ${ateliers}" th:value="${atelier.id}" th:text="${atelier.nom}">
+			</option>
+		</select><br>
+		<button type="submit">Réserver</button>
+	</form>
 </body>
+
 </html>

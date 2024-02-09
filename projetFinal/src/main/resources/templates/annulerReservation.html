@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Annuler une Réservation</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
+	<meta charset="UTF-8">
+	<title>Annuler une Réservation</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
+
 <body>
-    <h1>Annuler une Réservation</h1>
-    <form action="/annulerRes/{reservationId}" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-        <p>Voulez-vous vraiment annuler cette réservation ?</p>
-        <button type="submit">Confirmer</button>
-    </form>
+	<h1>Annuler une Réservation</h1>
+	<form action="/annulerRes/{reservationId}" method="post">
+		<input type="hidden" name="_method" value="DELETE">
+		<p>Voulez-vous vraiment annuler cette réservation ?</p>
+		<button type="submit">Confirmer</button>
+	</form>
 </body>
+
 </html>
