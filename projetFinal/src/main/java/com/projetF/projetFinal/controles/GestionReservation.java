@@ -1,6 +1,7 @@
-package com.projetF.controles;
+package com.projetF.projetFinal.controles;
 
 import java.util.List;
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +15,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.projetF.models.Atelier;
-import com.projetF.models.Reservation;
-import com.projetF.service.AtelierService;
-import com.projetF.service.ReservationService;
+import com.projetF.projetFinal.models.Atelier;
+import com.projetF.projetFinal.models.Reservation;
+import com.projetF.projetFinal.service.AtelierService;
+import com.projetF.projetFinal.service.ReservationService;
 
 @Controller
 public class GestionReservation {
 
     @GetMapping("/")
     public String showIndexPage() {
-        return "listAteliers"; 
+        return "index"; 
     }
     
     @Autowired
@@ -35,7 +36,7 @@ public class GestionReservation {
         return "annulerReservation"; 
     }
 
-    /*@DeleteMapping("/annulerReservation/{reservationId}")
+    @DeleteMapping("/annulerReservation/{reservationId}")
     public ResponseEntity<Void> cancelReservation(@PathVariable Long reservationId, Model model) {
         try {
             reservationService.annulerReservation(reservationId);
@@ -45,7 +46,7 @@ public class GestionReservation {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-   }*/
+    }
     
     @Autowired
     private AtelierService atelierService;
@@ -80,7 +81,3 @@ public class GestionReservation {
         }
     }
 }
-  
-    
-
-

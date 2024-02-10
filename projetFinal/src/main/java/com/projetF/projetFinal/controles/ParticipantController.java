@@ -1,4 +1,4 @@
-package com.projetF.controles;
+package com.projetF.projetFinal.controles;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetF.models.Participant;
-import com.projetF.repository.ParticipantRepository;
-import com.projetF.service.ParticipanService;
+import com.projetF.projetFinal.models.Participant;
+import com.projetF.projetFinal.repository.ParticipantRepository;
+import com.projetF.projetFinal.service.ParticipanService;
 
 @RestController
 @RequestMapping("/participants")

@@ -1,12 +1,16 @@
-package com.projetF.models;
+package com.projetF.projetFinal.models;
 
 
+
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,7 +33,20 @@ public class Artisan {
     @Column(name = "artisanat")
     private String artisanat;
 
-    // Getters and Setters
+    @OneToMany(mappedBy = "artisan", fetch = FetchType.LAZY)
+    private List<Atelier> ateliers;
+    
+    public Artisan () {
+    	
+    }
+    
+    public Artisan(Long id, String nom, String prenom, String artisanat, List<Atelier> ateliers) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.artisanat = artisanat;
+        this.ateliers = ateliers;
+    }
 	
 	// Getters and Setters
     public Long getId() {
@@ -62,6 +79,10 @@ public class Artisan {
 
     public void setArtisanat(String artisanat) {
         this.artisanat = artisanat;
+    }
+    
+    public void setAteliers(List<Atelier> ateliers) {
+        this.ateliers = ateliers;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.projetF.models;
+package com.projetF.projetFinal.models;
 
 
 
@@ -25,6 +25,16 @@ import jakarta.persistence.Table;
 	    
 	    @Column(name = "prenom")
 	    private String prenom;
+	    
+	    public Participant() {
+	        
+	    }
+	    
+	    public Participant(Long id, String nom, String prenom) {
+	        this.id = id;
+	        this.nom = nom;
+	        this.prenom = prenom;
+	    }
 
 	    // Getters and Setters
 	    

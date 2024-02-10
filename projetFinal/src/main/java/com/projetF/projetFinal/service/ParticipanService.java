@@ -1,4 +1,4 @@
-package com.projetF.service;
+package com.projetF.projetFinal.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projetF.models.Participant;
-import com.projetF.repository.ParticipantRepository;
+import com.projetF.projetFinal.models.Participant;
+import com.projetF.projetFinal.repository.ParticipantRepository;
 
 
 @Service

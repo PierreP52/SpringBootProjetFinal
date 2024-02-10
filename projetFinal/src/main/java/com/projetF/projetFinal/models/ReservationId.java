@@ -1,6 +1,7 @@
-package com.projetF.models;
+package com.projetF.projetFinal.models;
 
 import java.io.Serializable;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -9,13 +10,13 @@ import jakarta.persistence.Embeddable;
 public class ReservationId implements Serializable {
 	
 	@Column(name = "participant_id")
-	private int participant_id;
+	private long participant_id;
 	
 	@Column(name = "artisan_id")
-	private int artisan_id;
+	private long artisan_id;
 	
 	@Column(name = "atelier_id")
-    private int atelier_id;
+    private long atelier_id;
 	
 	public ReservationId() {
     }
@@ -27,7 +28,7 @@ public class ReservationId implements Serializable {
     }
 
     // Getters et setters
-    public int getParticipant_id() {
+    public long getParticipant_id() {
         return participant_id;
     }
 
@@ -35,7 +36,7 @@ public class ReservationId implements Serializable {
         this.participant_id = participant_id;
     }
 
-    public int getArtisan_id() {
+    public long getArtisan_id() {
         return artisan_id;
     }
 
@@ -43,7 +44,7 @@ public class ReservationId implements Serializable {
         this.artisan_id = artisan_id;
     }
     
-    public int getAtelier_id() {
+    public long getAtelier_id() {
         return atelier_id;
     }
 
@@ -65,10 +66,10 @@ public class ReservationId implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = participant_id;
+    	long result = participant_id;
         result = 31 * result + artisan_id;
         result = 31 * result + atelier_id;
-        return result;
+        return (int) result;
     }
 
 }

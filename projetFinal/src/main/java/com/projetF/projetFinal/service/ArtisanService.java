@@ -1,4 +1,4 @@
-package com.projetF.service;
+package com.projetF.projetFinal.service;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projetF.models.Artisan;
-import com.projetF.repository.ArtisanRepository;
+import com.projetF.projetFinal.models.Artisan;
+import com.projetF.projetFinal.repository.ArtisanRepository;
 
 @Service
 public class ArtisanService {
