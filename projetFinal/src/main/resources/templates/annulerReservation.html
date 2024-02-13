@@ -6,14 +6,52 @@
 	<title>Annuler une Réservation</title>
 	<link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
+<script>
+    function annulerReservation() {
+        fetch(document.getElementById('annulerForm').getAttribute('action'), {
+            method: 'DELETE'
+        })
+        .then(response => {
+    if (response.ok) {
+        
+        window.location.reload(); // Recharger la page
+    } else {
+        console.error('Erreur lors de la requête: ' + response.status);
+    }
+})
+.catch(error => {
+    console.error('Erreur lors de la requête: ' + error.message);
+});
+    }
+</script>
 
 <body>
-	<h1>Annuler une Réservation</h1>
-	<form action="/annulerRes/{reservationId}" method="post">
-		<input type="hidden" name="_method" value="DELETE">
-		<p>Voulez-vous vraiment annuler cette réservation ?</p>
-		<button type="submit">Confirmer</button>
-	</form>
+	<div class="center-div">
+		<h1>Annuler une Réservation</h1>
+		
+		<!-- Afficher la liste des réservations -->
+		<table>
+			<tr>
+				<th>Date & Heure</th>
+				<th>Atelier</th>
+				<th>Artisan</th>
+				<th>Participant</th>
+				<th>Action</th>
+			</tr>
+			<tr th:each="reservation : ${reservations}">
+				<td th:text="${#temporals.format(reservation.dateDebut, 'dd-MM-yyyy HH:mm')}"></td>
+				<td th:text="${reservation.atelier.nom}"></td>
+				<td th:text="${reservation.artisan.nom}"></td>
+				<td th:text="${reservation.participant.nom}"></td>
+				<td>
+					<form id="annulerForm" th:action="@{'/annulerReservation/' + ${reservation.id}}" method="post" onsubmit="event.preventDefault(); annulerReservation()">
+					    <input type="hidden" name="_method" value="DELETE">
+					    <button type="submit">Annuler</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
 </body>
 
 </html>

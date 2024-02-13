@@ -3,6 +3,7 @@ package com.projetF.projetFinal.models;
 
 
 import java.util.List;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,19 +34,19 @@ public class Artisan {
     @Column(name = "artisanat")
     private String artisanat;
 
-    @OneToMany(mappedBy = "artisan", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "artisan", fetch = FetchType.EAGER)
     private List<Atelier> ateliers;
     
     public Artisan () {
     	
     }
     
-    public Artisan(Long id, String nom, String prenom, String artisanat, List<Atelier> ateliers) {
+    public Artisan(Long id, String nom, String prenom, String artisanat) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.artisanat = artisanat;
-        this.ateliers = ateliers;
+        
     }
 	
 	// Getters and Setters
@@ -83,6 +84,22 @@ public class Artisan {
     
     public void setAteliers(List<Atelier> ateliers) {
         this.ateliers = ateliers;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Artisan artisan = (Artisan) o;
+        return Objects.equals(id, artisan.id) &&
+               Objects.equals(nom, artisan.nom) &&
+               Objects.equals(prenom, artisan.prenom) &&
+               Objects.equals(artisanat, artisan.artisanat);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nom, prenom, artisanat);
     }
 
 }

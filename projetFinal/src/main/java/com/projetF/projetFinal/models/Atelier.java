@@ -6,6 +6,7 @@ package com.projetF.projetFinal.models;
 import jakarta.persistence.Column;
 
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -72,10 +73,21 @@ public class Atelier {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public String getArtisan() {
-        return artisan.getNom();
+    
+    public Artisan getArtisan() {
+        return artisan;
     }
+
+    public void setArtisan(Artisan artisan) {
+        this.artisan = artisan;
+    }
+
+    public Long getArtisanId() {
+        return artisan.getId();
+    }
+
+    
+
 
     
 }

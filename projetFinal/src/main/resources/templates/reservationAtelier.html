@@ -8,25 +8,27 @@
 </head>
 
 <body>
-	<h1>Réserver un atelier</h1>
-	<form action="/reservation/creneau" method="post" th:object="${nouvelleReservation}">
-		<label>Date de début :</label>
-		<input type="datetime-local" th:field="*{dateDebut}" required><br>
-		<label>Date de fin :</label>
-		<input type="datetime-local" th:field="*{dateFin}" required><br>
-		<label>Participant :</label>
-		<select th:field="*{participantId}" required>
-			<option th:each="participant : ${participants}" th:value="${participant.id}"
-				th:text="${participant.nom + ' ' + participant.prenom}">
-			</option>
-		</select><br>
-		<label>Atelier :</label>
-		<select th:field="*{atelierId}" required>
-			<option th:each="atelier : ${ateliers}" th:value="${atelier.id}" th:text="${atelier.nom}">
-			</option>
-		</select><br>
-		<button type="submit">Réserver</button>
-	</form>
+	<div class="center-div">
+		<h1>Réserver un atelier</h1>
+		<form action="/reservationAtelier/creneau" method="post" th:object="${nouvelleReservation}">
+		    <label>Date de début :</label>
+		    <input type="datetime-local" th:field="*{dateDebut}" required><br>
+		    <label>Date de fin :</label>
+		    <input type="datetime-local" th:field="*{dateFin}" required><br>
+		    <label>Participant :</label>
+		    <select th:field="*{participantId}" required>
+		        <option th:each="participant : ${participants}" th:value="${participant.id}"
+		            th:text="${participant.nom + ' ' + participant.prenom}">
+		        </option>
+		    </select><br>
+		    <label>Atelier :</label>
+		    <select th:field="*{atelierId}" required>
+		        <option th:each="atelier : ${ateliers}" th:value="${atelier.id}" th:text="${atelier.nom}">     
+		        </option>
+		    </select><br>
+		    <button type="submit">Réserver</button>
+		</form>
+	</div>
 </body>
 
 </html>

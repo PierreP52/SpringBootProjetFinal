@@ -9,19 +9,19 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class ReservationId implements Serializable {
 	
-	@Column(name = "participant_id")
+	@Column(name = "participant_id", insertable = false, updatable = false)
 	private long participant_id;
 	
-	@Column(name = "artisan_id")
+	@Column(name = "artisan_id", insertable = false, updatable = false)
 	private long artisan_id;
 	
-	@Column(name = "atelier_id")
+	@Column(name = "atelier_id", insertable = false, updatable = false)
     private long atelier_id;
 	
 	public ReservationId() {
     }
 
-    public ReservationId(int participant_id, int artisan_id, int atelier_id) {
+    public ReservationId(long participant_id, long artisan_id, long atelier_id) {
         this.participant_id = participant_id;
         this.artisan_id = artisan_id;
         this.atelier_id = atelier_id;
@@ -32,7 +32,7 @@ public class ReservationId implements Serializable {
         return participant_id;
     }
 
-    public void setParticipant_id(int participant_id) {
+    public void setParticipant_id(long participant_id) {
         this.participant_id = participant_id;
     }
 
@@ -40,7 +40,7 @@ public class ReservationId implements Serializable {
         return artisan_id;
     }
 
-    public void setArtisan_id(int artisan_id) {
+    public void setArtisan_id(long artisan_id) {
         this.artisan_id = artisan_id;
     }
     
@@ -48,7 +48,7 @@ public class ReservationId implements Serializable {
         return atelier_id;
     }
 
-    public void setAtelier_id(int atelier_id) {
+    public void setAtelier_id(long atelier_id) {
         this.atelier_id = atelier_id;
     }
 

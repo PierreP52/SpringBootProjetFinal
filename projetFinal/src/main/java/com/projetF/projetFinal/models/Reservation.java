@@ -1,56 +1,78 @@
 package com.projetF.projetFinal.models;
 
 import java.sql.Date;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 
 import jakarta.persistence.FetchType;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+import com.projetF.projetFinal.models.ReservationId;
+import com.projetF.projetFinal.models.Participant;
+import com.projetF.projetFinal.models.Artisan;
+import com.projetF.projetFinal.models.Atelier;
+
 
 @Entity
 @Table(name = "Reservation")
 public class Reservation {
 
-    @EmbeddedId
-    private ReservationId id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(name = "date_debut")
     private LocalDateTime dateDebut;
+    
+    @Column(name = "date_fin")
     private LocalDateTime dateFin;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "participant_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "participant_id")
     private Participant participant;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "artisan_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "artisan_id")
     private Artisan artisan;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "atelier_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "atelier_id")
     private Atelier atelier;
+    
+    
+    private Long atelierId;
+    
+    private Long participantId;
+    
+    private Long artisanId;
 	
     public Reservation() {
     }
 
-    public Reservation(ReservationId id, LocalDateTime dateDebut, LocalDateTime dateFin, Atelier atelier) {
-        this.id = id;
+    public Reservation(LocalDateTime dateDebut, LocalDateTime dateFin, Long atelierId, Long participantId, Long artisanId) {
+        
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
-        this.atelier = atelier;
+        this.atelierId = atelierId;
+        this.participantId = participantId;
+        this.artisanId = artisanId;
     }
 
-    public ReservationId getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(ReservationId id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -69,14 +91,55 @@ public class Reservation {
     public void setDateFin(LocalDateTime dateFin) {
         this.dateFin = dateFin;
     }
+    
+    public Long getArtisanId() {
+        return artisanId;
+    }
+    
+    public void setArtisanId(Long artisanId) {
+        this.artisanId = artisanId;
+    }
 
+    public Long getParticipantId() {
+        return participantId;
+    }
+    
+    public void setParticipantId(Long participantId) {
+        this.participantId = participantId;
+    }
+    
+    public Long getAtelierId() {
+        return atelierId;
+    }
+
+    public void setAtelierId(Long atelierId) {
+        this.atelierId = atelierId;
+    }
+    
     public Atelier getAtelier() {
         return atelier;
     }
-
+    
     public void setAtelier(Atelier atelier) {
         this.atelier = atelier;
     }
+    
+    public Artisan getArtisan() {
+        return artisan;
+    }
+
+    public void setArtisan(Artisan artisan) {
+        this.artisan = artisan;
+    }
+    
+    public Participant getParticipant() {
+        return participant;
+    }
+
+    public void setParticipant(Participant participant) {
+        this.participant = participant;
+    }
+
 
     @Override
     public boolean equals(Object o) {
